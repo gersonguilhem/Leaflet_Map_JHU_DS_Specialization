@@ -1,0 +1,30 @@
+---
+title: "Leaflet Map Assignment"
+author: "Gerson Guilhem"
+date: "2/5/2021"
+output: html_document
+---
+
+Places I've traveled in my last trip to Europe:
+
+```{r, eval=FALSE, fig.cap="Places I've travelled in Europe", echo = FALSE}
+library(leaflet)
+
+# Lisbon = 38.722252, -9.139337
+# Evora = 38.571430, -7.913502
+# Elvas = 38.881100, -7.163830
+# Monsaraz = 38.423458, -7.533570
+# Rome = 41.902782, 12.496365
+# Paris = 48.8566, 2.3522
+
+cities.df <- data.frame(lat = c(38.722252, 38.571430, 38.881100, 38.423458, 41.902782, 48.8566),
+                        lng = c(-9.139337, -7.913502, -7.163830, -7.533570, 12.496365, 2.3522),
+                        popup = c("Lisbon", "Evora", "Elvas", "Monsaraz", "Rome", "Paris"))
+
+cities.df %>%
+  leaflet() %>%
+  addTiles() %>%
+  addPolylines(lng = ~lng, lat = ~lat, dashArray = '5,10', color = "black") %>%
+  addMarkers(clusterOptions = markerClusterOptions(), popup = ~popup)
+
+```
