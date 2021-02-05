@@ -1,13 +1,11 @@
 ---
-title: "Leaflet Map Assignment"
+title: "Places I've traveled in my last trip to Europe so far"
 author: "Gerson Guilhem"
 date: "2/5/2021"
 output: html_document
 ---
 
-Places I've traveled in my last trip to Europe:
-
-```{r, eval=FALSE, fig.cap="Places I've travelled in Europe", echo = FALSE}
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
 library(leaflet)
 
 # Lisbon = 38.722252, -9.139337
